@@ -15,3 +15,8 @@ steps to re-create the tidy dataset
 * clone reposotory or download script run_analysis.R 
 * run script run_analysis.R in working directory datafiles were extracted to.
 
+To view the tidy dataset from this repo in R run the below code
+
+link <- "https://raw.githubusercontent.com/nickwhimster/Coursera-Getting-and-Cleaning-Data-Course-Project/master/tidy.txt"
+df <- read.table(link, header = TRUE)
+View(df)
