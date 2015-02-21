@@ -8,3 +8,10 @@ The original datasets used in this script are located at the below location.
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
 
+steps to re-create the tidy dataset 
+
+* download and unzip the files from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+  to the R working directory
+* clone reposotory or download script run_analysis.R 
+* run script run_analysis.R in working directory datafiles were extracted to.
+
