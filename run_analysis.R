@@ -1,5 +1,3 @@
-
-
 # get packages if not installed
 if (!require("data.table")) {
     install.packages("data.table")
@@ -24,19 +22,19 @@ fGetData<- function (path, separator="" ) {
 
 
 # read column headers
-dffeatures<-fGetData('~/UCI HAR Dataset/features.txt')
-dfactivity_lables<-fGetData('~/UCI HAR Dataset/activity_labels.txt')
+dffeatures<-fGetData('./UCI HAR Dataset/features.txt')
+dfactivity_lables<-fGetData('./UCI HAR Dataset/activity_labels.txt')
 colnames(dfactivity_lables)<-'activity'
 
 # read x_train data
-dfxtrain<-fGetData('~/UCI HAR Dataset/train/X_train.txt')
-dfytrain<-fGetData('~/UCI HAR Dataset/train/y_train.txt')
-dftrainsubjects<-fGetData('~/UCI HAR Dataset/train/subject_train.txt')
+dfxtrain<-fGetData('./UCI HAR Dataset/train/X_train.txt')
+dfytrain<-fGetData('./UCI HAR Dataset/train/y_train.txt')
+dftrainsubjects<-fGetData('./UCI HAR Dataset/train/subject_train.txt')
 
 # read x_test data 
-dfxtest<-fGetData('~/UCI HAR Dataset/test/X_test.txt')
-dfytest<-fGetData('~/UCI HAR Dataset/test/y_test.txt')
-dftestsubjects<-fGetData('~/UCI HAR Dataset/test/subject_test.txt')
+dfxtest<-fGetData('./UCI HAR Dataset/test/X_test.txt')
+dfytest<-fGetData('./UCI HAR Dataset/test/y_test.txt')
+dftestsubjects<-fGetData('./UCI HAR Dataset/test/subject_test.txt')
 
 #bind x data together
 df_x<-bind_rows(dfxtrain, dfxtest)
@@ -48,7 +46,7 @@ dfkeep<- sapply(dffeatures[,2], function(x) grepl("mean()", x, fixed=T) | grepl(
 
 # Apply column names to x data
 colnames(df_x)<- dffeatures$V2
-dflist<-dffeatures[(dfkeep),]
+
 # subset the mean & std columns
 dfsubx<- df_x[, (dfkeep)]
 
@@ -66,11 +64,4 @@ dftidy<-arrange(dftidy,subject)
 colnames(dftidy)[1]<-'activity'
 dftidy<-dftidy[,c("subject",setdiff(names(dftidy),"subject"))]
 
-write.table(dftidy, "tidy.txt" )
-
-
-
-link <- "https://github.com/nickwhimster/Coursera-Getting-and-Cleaning-Data-Course-Project/blob/master/tidy.txt"
-#address <- sub("^https", "http", address)
-df <- read.table(link, header = TRUE) #if they used some other way of saving the file than a default write.table, this step will be different
-View(df)
+write.table(dftidy, "tidy.txt" , row.name=FALSE )
