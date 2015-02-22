@@ -139,7 +139,7 @@ These files are not used in the creation of the tidy dataset.
 
 
 
-The below calculated variables from the original data where excluded from the final tidy dataset.
+### The below calculated variables from the original data where excluded from the final tidy dataset.
 The complete list of variables of each feature vector is available in 'features.txt' in the original data set. 
 
 mad(): Median absolute deviation 
