@@ -48,7 +48,7 @@ dfkeep<- sapply(dffeatures[,2], function(x) grepl("mean()", x, fixed=T) | grepl(
 
 # Apply column names to x data
 colnames(df_x)<- dffeatures$V2
-
+dflist<-dffeatures[(dfkeep),]
 # subset the mean & std columns
 dfsubx<- df_x[, (dfkeep)]
 
@@ -69,3 +69,8 @@ dftidy<-dftidy[,c("subject",setdiff(names(dftidy),"subject"))]
 write.table(dftidy, "tidy.txt" )
 
 
+
+link <- "https://github.com/nickwhimster/Coursera-Getting-and-Cleaning-Data-Course-Project/blob/master/tidy.txt"
+#address <- sub("^https", "http", address)
+df <- read.table(link, header = TRUE) #if they used some other way of saving the file than a default write.table, this step will be different
+View(df)

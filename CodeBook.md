@@ -30,7 +30,8 @@ The original data contains the following files which are used to create the fina
 * 'test/y_test.txt': Test labels.
 
 The following files are available for the train and test data. Their descriptions are equivalent. 
-These files are not used in the 
+
+These files are not used in the creation of the final dataset.
 
 - 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
@@ -45,6 +46,6 @@ These files are not used in the
 
 ## Steps
 
-* 
+*  
 
 
